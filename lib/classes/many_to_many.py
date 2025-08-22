@@ -38,7 +38,12 @@ class Article:
 
     @property
     def title(self):
-        return self._title  # immutable
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        # ignore reassignment to keep it immutable
+        pass
 
 
 class Author:
@@ -51,7 +56,12 @@ class Author:
 
     @property
     def name(self):
-        return self._name  # immutable
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        # ignore reassignment to keep it immutable
+        pass
 
     def articles(self):
         return [article for article in Article.all if article.author == self]
